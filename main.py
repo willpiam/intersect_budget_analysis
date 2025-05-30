@@ -2,6 +2,7 @@ import json
 import matplotlib.pyplot as plt
 import statistics
 import os
+from matplotlib.patches import Patch
 
 # Define color mapping for different opinions
 OPINION_COLORS = {
@@ -33,6 +34,11 @@ def create_bar_plot(proposals, title, filename, figsize=(20, 12)):
     
     # Create bar plot with custom colors
     plt.bar(range(len(amounts)), amounts, color=colors)
+    
+    # Create legend
+    legend_elements = [Patch(facecolor=color, label=opinion.capitalize()) 
+                      for opinion, color in OPINION_COLORS.items()]
+    plt.legend(handles=legend_elements, title='Opinion', loc='upper right')
     
     # Customize the plot
     plt.title(title)
