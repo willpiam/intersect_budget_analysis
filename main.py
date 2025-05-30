@@ -3,6 +3,14 @@ import matplotlib.pyplot as plt
 import statistics
 import os
 
+# Define color mapping for different opinions
+OPINION_COLORS = {
+    'good': 'green',
+    'bad': 'red',
+    'skeptical': 'orange',
+    'neutral': 'blue'  # default color for proposals without an opinion
+}
+
 def create_bar_plot(proposals, title, filename, figsize=(20, 12)):
     plt.figure(figsize=figsize)
     
@@ -13,14 +21,18 @@ def create_bar_plot(proposals, title, filename, figsize=(20, 12)):
     # Extract data for plotting and truncate long labels
     amounts = [proposal['amount'] for proposal in proposals]
     names = []
+    colors = []
     for proposal in proposals:
         name = proposal['proposal']
         if len(name) > median_length:
             name = name[:median_length-3] + "..."
         names.append(name)
+        # Get color from mapping, default to neutral if no opinion
+        opinion = proposal.get('opinion', 'neutral')
+        colors.append(OPINION_COLORS.get(opinion, OPINION_COLORS['neutral']))
     
-    # Create bar plot
-    plt.bar(range(len(amounts)), amounts)
+    # Create bar plot with custom colors
+    plt.bar(range(len(amounts)), amounts, color=colors)
     
     # Customize the plot
     plt.title(title)
@@ -71,9 +83,9 @@ def main():
     bottom_half = sorted_proposals[mid_point:]
     
     # add asserts to ensure this makes sense
-    assert len(top_half) + len(bottom_half) == len(proposals)
+    assert len(top_half) + len(bottom_half) == len(proposals), "Top half and bottom half should add up to the total number of proposals"
     # all elements of proposals is either in top or bottom (not using sets) using lambda
-    assert all(lambda x: x in top_half or x in bottom_half for x in proposals)
+    assert all(lambda x: x in top_half or x in bottom_half for x in proposals), "Each proposal should be in either top or bottom"
     
     # Create three separate plots
     create_bar_plot(sorted_proposals, 'All Proposals by Amount Requested', os.path.join(charts_dir, 'all_proposals.png'))

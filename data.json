@@ -1,15 +1,18 @@
 [
   {
     "amount": 96817080,
-    "proposal": "2025 Input Output Engineering Core Development Proposal"
+    "proposal": "2025 Input Output Engineering Core Development Proposal",
+    "opinion": "good"
   },
   {
     "amount": 69459000,
-    "proposal": "Catalyst 2025 Proposal by Input Output: Advancing Decentralised Community Innovation Funding & Infrastructure"
+    "proposal": "Catalyst 2025 Proposal by Input Output: Advancing Decentralised Community Innovation Funding & Infrastructure",
+    "opinion": "skeptical"
   },
   {
     "amount": 26848000,
-    "proposal": "Input Output Research (IOR): Cardano Vision - Work Program 2025"
+    "proposal": "Input Output Research (IOR): Cardano Vision - Work Program 2025",
+    "opinion": "good"
   },
   {
     "amount": 15750000,
@@ -17,7 +20,8 @@
   },
   {
     "amount": 12000000,
-    "proposal": "Cardano Builder DAO"
+    "proposal": "Cardano Builder DAO",
+    "opinion": "skeptical"
   },
   {
     "amount": 11070323,
@@ -45,15 +49,18 @@
   },
   {
     "amount": 3000000,
-    "proposal": "High-yield RWA Asset for Cardano : Tokenized Real Estate"
+    "proposal": "High-yield RWA Asset for Cardano : Tokenized Real Estate",
+    "opinion": "bad"
   },
   {
     "amount": 2162096,
-    "proposal": "Midgard - Optimistic Rollups"
+    "proposal": "Midgard - Optimistic Rollups",
+    "opinion": "good"
   },
   {
     "amount": 1500000,
-    "proposal": "Complement Catalyst: Extended Quadratic Funding—Zero Operational Costs"
+    "proposal": "Complement Catalyst: Extended Quadratic Funding—Zero Operational Costs",
+    "opinion": "skeptical"
   },
   {
     "amount": 1300000,
@@ -61,11 +68,13 @@
   },
   {
     "amount": 1161000,
-    "proposal": "zkFold ZK Rollup"
+    "proposal": "zkFold ZK Rollup",
+    "opinion": "good"
   },
   {
     "amount": 1119333,
-    "proposal": "Cardano Ecosystem Pavilions at Exhibitions"
+    "proposal": "Cardano Ecosystem Pavilions at Exhibitions",
+    "opinion": "skeptical"
   },
   {
     "amount": 750000,
@@ -89,11 +98,13 @@
   },
   {
     "amount": 592780,
-    "proposal": "Beyond Minimum Viable Governance: Iteratively Improving on Cardano Voltaire"
+    "proposal": "Beyond Minimum Viable Governance: Iteratively Improving on Cardano Voltaire",
+    "opinion": "skeptical"
   },
   {
     "amount": 583000,
-    "proposal": "Eternl Maintenance"
+    "proposal": "Eternl Maintenance",
+    "opinion": "good"
   },
   {
     "amount": 578571,
@@ -141,7 +152,8 @@
   },
   {
     "amount": 130903,
-    "proposal": "Lucid Evolution Maintenance"
+    "proposal": "Lucid Evolution Maintenance",
+    "opinion": "good"
   },
   {
     "amount": 104347,
