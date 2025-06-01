@@ -30,6 +30,10 @@ def create_bar_plot(proposals, title, filename, figsize=(20, 12)):
         names.append(name)
         # Get color from mapping, default to neutral if no opinion
         opinion = proposal.get('opinion', 'neutral')
+
+        # assert that the opinion exists in the keys of OPINION_COLORS
+        assert opinion in OPINION_COLORS.keys(), f"Opinion {opinion} not found in OPINION_COLORS"
+
         colors.append(OPINION_COLORS.get(opinion, OPINION_COLORS['neutral']))
     
     # Create bar plot with custom colors

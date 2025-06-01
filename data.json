@@ -16,7 +16,8 @@
   },
   {
     "amount": 15750000,
-    "proposal": "A member-based organization for the Cardano ecosystem: Intersect"
+    "proposal": "A member-based organization for the Cardano ecosystem: Intersect",
+    "opinion": "good"
   },
   {
     "amount": 12000000,
@@ -29,7 +30,8 @@
   },
   {
     "amount": 6000000,
-    "proposal": "Cardano Summit 2025 and regional tech events"
+    "proposal": "Cardano Summit 2025 and regional tech events",
+    "opinion": "skeptical"
   },
   {
     "amount": 6000000,
