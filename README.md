@@ -1,8 +1,14 @@
 # Intersect Budget Analysis 2025
 
-This project analyzes and visualizes the budget requests from Cardano proposals. The analysis includes three different views of the proposal amounts to help understand the distribution of funding requests.
+This project analyzes and visualizes the budget requests from Cardano proposals. The analysis includes multiple views of the proposal amounts and opinion distributions to help understand the funding requests and their categorization.
 
 ## Generated Charts
+
+### Opinion Distribution
+![Opinion Distribution](charts/opinion_distribution.png)
+This visualization shows two pie charts:
+- Left: Distribution of opinions by number of proposals
+- Right: Distribution of opinions by total amount requested (ADA)
 
 ### All Proposals
 ![All Proposals](charts/all_proposals.png)
