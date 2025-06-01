@@ -63,6 +63,43 @@ def create_bar_plot(proposals, title, filename, figsize=(20, 12)):
     plt.savefig(filename, dpi=300, bbox_inches='tight')
     print(f"Bar graph has been saved as '{filename}'")
 
+def create_opinion_pie_chart(proposals, filename_base, figsize=(10, 10)):
+    # Create figure with two subplots side by side
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(20, 10))
+    
+    # Count proposals by opinion
+    opinion_counts = {}
+    opinion_amounts = {}
+    for proposal in proposals:
+        opinion = proposal.get('opinion', 'neutral')
+        opinion_counts[opinion] = opinion_counts.get(opinion, 0) + 1
+        opinion_amounts[opinion] = opinion_amounts.get(opinion, 0) + proposal['amount']
+
+    # assert that the sum of all values in opinion counts is equal to the total number of proposals
+    assert sum(opinion_counts.values()) == len(proposals), "Sum of opinion counts should be equal to the total number of proposals"
+    # assert that the sum of all values in opinion amounts is equal to the total amount requested
+    assert sum(opinion_amounts.values()) == sum(proposal['amount'] for proposal in proposals), "Sum of opinion amounts should be equal to the total amount requested"
+
+    # Create pie chart for counts
+    labels = [opinion.capitalize() for opinion in opinion_counts.keys()]
+    sizes = list(opinion_counts.values())
+    colors = [OPINION_COLORS[opinion] for opinion in opinion_counts.keys()]
+    
+    ax1.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90)
+    ax1.set_title('Distribution of Opinions by Number of Proposals')
+    
+    # Create pie chart for amounts
+    amount_sizes = list(opinion_amounts.values())
+    ax2.pie(amount_sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90)
+    ax2.set_title('Distribution of Opinions by Total Amount Requested (ADA)')
+    
+    # Adjust layout
+    plt.tight_layout()
+    
+    # Save the plots
+    plt.savefig(filename_base, dpi=300, bbox_inches='tight')
+    print(f"Pie charts have been saved as '{filename_base}'")
+
 def main():
     # Create charts directory if it doesn't exist
     charts_dir = 'charts'
@@ -101,6 +138,9 @@ def main():
     create_bar_plot(sorted_proposals, 'All Proposals by Amount Requested', os.path.join(charts_dir, 'all_proposals.png'))
     create_bar_plot(top_half, 'Top Half - Most Expensive Proposals', os.path.join(charts_dir, 'top_half_proposals.png'))
     create_bar_plot(bottom_half, 'Bottom Half - Least Expensive Proposals', os.path.join(charts_dir, 'bottom_half_proposals.png'))
+    
+    # Create opinion distribution pie charts
+    create_opinion_pie_chart(proposals, os.path.join(charts_dir, 'opinion_distribution.png'))
 
 if __name__ == "__main__":
     main()
