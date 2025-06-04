@@ -7,7 +7,8 @@
   {
     "amount": 69459000,
     "proposal": "Catalyst 2025 Proposal by Input Output: Advancing Decentralised Community Innovation Funding & Infrastructure",
-    "opinion": "skeptical"
+    "opinion": "skeptical",
+    "why": "double governance"
   },
   {
     "amount": 26848000,
@@ -31,7 +32,8 @@
   {
     "amount": 6000000,
     "proposal": "Cardano Summit 2025 and regional tech events",
-    "opinion": "skeptical"
+    "opinion": "skeptical",
+    "why" : "events"
   },
   {
     "amount": 6000000,
@@ -52,7 +54,8 @@
   {
     "amount": 3000000,
     "proposal": "High-yield RWA Asset for Cardano : Tokenized Real Estate",
-    "opinion": "bad"
+    "opinion": "bad",
+    "why": "I don't think we should be funding the "
   },
   {
     "amount": 2162096,

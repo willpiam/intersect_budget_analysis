@@ -100,6 +100,26 @@ def create_opinion_pie_chart(proposals, filename_base, figsize=(10, 10)):
     plt.savefig(filename_base, dpi=300, bbox_inches='tight')
     print(f"Pie charts have been saved as '{filename_base}'")
 
+# Add function to create reasons pie chart for non-good opinions
+def create_reasons_pie_chart(proposals, filename, figsize=(10, 10)):
+    import collections
+    reasons = []
+    for proposal in proposals:
+        if proposal.get('opinion', 'neutral') != 'good':
+            reasons.append(proposal.get('why', 'unspecified'))
+    
+    print(reasons)
+
+    counts = collections.Counter(reasons)
+    labels = list(counts.keys())
+    sizes = list(counts.values())
+    plt.figure(figsize=figsize)
+    plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90)
+    plt.title('Distribution of Reasons for Non-Good Opinions')
+    plt.tight_layout()
+    plt.savefig(filename, dpi=300, bbox_inches='tight')
+    print(f"Reasons pie chart saved as '{filename}'")
+
 def main():
     # Create charts directory if it doesn't exist
     charts_dir = 'charts'
@@ -141,6 +161,9 @@ def main():
     
     # Create opinion distribution pie charts
     create_opinion_pie_chart(proposals, os.path.join(charts_dir, 'opinion_distribution.png'))
+
+    # Add call for reasons pie chart
+    create_reasons_pie_chart(proposals, os.path.join(charts_dir, 'reasons_distribution.png'))
 
 if __name__ == "__main__":
     main()
